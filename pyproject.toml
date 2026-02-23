@@ -1,0 +1,35 @@
+[project]
+name = "car-finder"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Willians Pereira",email = "willians@4vconnect.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy (>=2.0.46,<3.0.0)",
+    "asyncpg (>=0.31.0,<0.32.0)",
+    "alembic (>=1.18.4,<2.0.0)",
+    "pydantic (>=2.12.5,<3.0.0)",
+    "mcp (>=1.26.0,<2.0.0)",
+    "anthropic (>=0.83.0,<0.84.0)"
+]
+
+[tool.poetry]
+packages = [{include = "car_finder", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest-asyncio (>=1.3.0,<2.0.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+    "faker (>=40.4.0,<41.0.0)",
+    "pytest-mock (>=3.15.1,<4.0.0)",
+    "ruff (>=0.15.2,<0.16.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "vcrpy (>=8.1.1,<9.0.0)"
+]

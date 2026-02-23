@@ -1,0 +1,19 @@
+line-length = 79
+exclude = [
+    ".mypy_cache",
+    ".pyenv",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".tox",
+    ".vscode",
+    "migrations",
+    "scripts",
+]
+
+[lint]
+fixable = ["ALL"]
+unfixable = []
+
+[format]
+quote-style = "double"
+line-ending = "auto"
