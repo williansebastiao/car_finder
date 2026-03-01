@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     DATABASE_PASSWORD: str = Field(...)
     DATABASE_PORT: int = Field(default=5432)
 
+    ANTHROPIC_API_KEY: str = Field(...)
+
     @computed_field
     @property
     def database_url(self) -> str:
@@ -26,7 +28,6 @@ class Settings(BaseSettings):
         )
 
         return str(build_url)
-
 
     model_config = SettingsConfigDict(
         extra="ignore",
