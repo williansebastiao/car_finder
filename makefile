@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DOCKER_COMPOSE := docker-compose
 POETRY_CMD := poetry run
 
-.PHONY: help scaffold alembic start build stop migration migrate lint tests
+.PHONY: help scaffold alembic start build stop migration migrate seed lint tests run
 
 help:
 	@echo "Car Finder - Makefile"
@@ -36,6 +36,12 @@ migration: ## Create a migration
 
 migrate: ## Run migration
 	$(DOCKER) $(POETRY_CMD) alembic upgrade head
+
+seed: ## Insert fake vehicles into the database (requires DB running + migrated)
+	$(POETRY_CMD) python -m src.database.seed.vehicle
+
+run: ## Start the Car Finder terminal agent
+	$(POETRY_CMD) python -m src.main
 
 lint: ## Run all linting tools
 	$(POETRY_CMD) ruff check --fix
